@@ -12,6 +12,7 @@ def bag_is_empty(bag):
         return False
     else:
         return True
+#user section
 while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
     bag_validity=False
     item_validity=False
@@ -37,6 +38,7 @@ while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
     print(f"you took {item_choosen} from bag {Bag_user+1}\n")
     print(Bag)
     user_plays+=1
+    #Computer Section
     empty=False
     while not empty:
         bag_computer=random.randint(0,2)
