@@ -12,12 +12,17 @@ def bag_is_empty(bag):
         return False
     else:
         return True
-#user section
 while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
     bag_validity=False
     item_validity=False
     while bag_validity==False:
-        Bag_user=int(input("Choose a bag from 1 to 3: "))
+        while True:
+            try:
+                Bag_user=int(input("Choose a bag from 1 to 3: "))
+            except Exception:
+                print("Invalid number, sorry!")
+            else:
+                break
         Bag_user-=1
         if Bag_user != 0 and Bag_user !=1 and Bag_user !=2:
             print("incorrect bag!")
@@ -26,7 +31,13 @@ while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
         else:
             bag_validity=True
     while item_validity==False:
-        item_choosen=int(input("Choose number of items from 1 to 5 to be removed from the bags: "))
+        while True:
+            try:
+                item_choosen=int(input("choose number of items from 0 to 5 from the bag: "))
+            except Exception:
+                print("Invalid number, sorry!")
+            else:
+                break
         if item_choosen<0 or item_choosen>5:
             print("Number of items should be between 1 to 5!")
         elif item_choosen>Bag[Bag_user]:
@@ -38,7 +49,6 @@ while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
     print(f"you took {item_choosen} from bag {Bag_user+1}\n")
     print(Bag)
     user_plays+=1
-    #Computer Section
     empty=False
     while not empty:
         bag_computer=random.randint(0,2)
@@ -51,7 +61,8 @@ while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
     print(f"Computer took {items_choosen_computer} from bag {bag_computer+1}\n")
     print(Bag)
     comp_plays+=1
+    
 if(comp_plays>=user_plays):
     print("The computer won!")
 else:
-    print("you won!")    
+    print("you won!") 
