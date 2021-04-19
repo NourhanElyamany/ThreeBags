@@ -1,4 +1,5 @@
 import random
+import cv2
 Bag =[ 10 , 10 , 10 ]
 print(Bag)
 user_plays=0
