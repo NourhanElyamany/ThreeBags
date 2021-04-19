@@ -67,15 +67,15 @@ while True :
     comp_plays+=1
     if (Bag[0] ==0 and Bag[1] ==0 and Bag[2] ==0):
         break
-print("exit")
-image=cv2.imread('winner.png',0)
+
+image=cv2.imread('winner.png')
 font= cv2.FONT_HERSHEY_SIMPLEX
 if(comp_plays>=user_plays):
-    cv2.putText(image,'Computer is the winner',(100,200),font,1,(0,0,255))
+    cv2.putText(image,'Computer is the winner',(300,300),font,3,(0,0,255))
     print('computer wins')
 else:
-    cv2.putText(image,'User is the winner' ,(100,200),font,1,(0,0,255))
+    cv2.putText(image,'User is the winner' ,(300,300),font,3,(0,0,255))
     print('user wins')
 cv2.imshow('image',image)
-cv2.waitkey(0)
+cv2.waitKey(0)
 cv2.destroyAllWindows()
