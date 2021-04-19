@@ -13,7 +13,7 @@ def bag_is_empty(bag):
         return False
     else:
         return True
-while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
+while True :
     bag_validity=False
     item_validity=False
     while bag_validity==False:
@@ -51,9 +51,12 @@ while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
     print(Bag)
     user_plays+=1
     empty=False
+    if (Bag[0] ==0 and Bag[1] ==0 and Bag[2] ==0):
+        break
     while not empty:
         bag_computer=random.randint(0,2)
         empty=bag_is_empty(bag_computer)
+    
     if Bag[bag_computer]>5:
         items_choosen_computer=random.randint(1,5)
     else:
@@ -62,8 +65,17 @@ while Bag[0] !=0 or Bag[1] !=0 or Bag[2] !=0:
     print(f"Computer took {items_choosen_computer} from bag {bag_computer+1}\n")
     print(Bag)
     comp_plays+=1
-    
+    if (Bag[0] ==0 and Bag[1] ==0 and Bag[2] ==0):
+        break
+print("exit")
+image=cv2.imread('winner.png',0)
+font= cv2.FONT_HERSHEY_SIMPLEX
 if(comp_plays>=user_plays):
-    print("The computer won!")
+    cv2.putText(image,'Computer is the winner',(100,200),font,1,(0,0,255))
+    print('computer wins')
 else:
-    print("you won!") 
+    cv2.putText(image,'User is the winner' ,(100,200),font,1,(0,0,255))
+    print('user wins')
+cv2.imshow('image',image)
+cv2.waitkey(0)
+cv2.destroyAllWindows()
